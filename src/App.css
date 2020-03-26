@@ -1,3 +1,11 @@
+.Main {
+  background-color: gray;
+  width: 600px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+}
+
 .App {
   text-align: center;
 }
