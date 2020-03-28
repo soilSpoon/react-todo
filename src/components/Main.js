@@ -22,6 +22,10 @@ const Main = () => {
 
     //todo 추가
     const addTodo = (todoText) => {
+        if(todoText == '') {
+            alert('할일을 입력해주세요');
+            return false;
+        }
         setTodo(
             [
                 ...todoList,
