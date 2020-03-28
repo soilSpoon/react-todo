@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Board from './Board';
 import BtnSection from './BtnSection';
 
-const Main = ({children}) => {
+const Main = () => {
     const [todoList, setTodo] = useState(
         [
             {
