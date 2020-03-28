@@ -62,12 +62,10 @@ const Main = () => {
     }
 
     return (
-        <>
-            <div className="Main">
-                <Board todoList={todoList} checkTodo={checkTodo} deleteTodo={deleteTodo} />
-                <BtnSection addTodo={addTodo} />
-            </div>
-        </>
+        <div className="Main">
+            <Board todoList={todoList} checkTodo={checkTodo} deleteTodo={deleteTodo} />
+            <BtnSection addTodo={addTodo} />
+        </div>
     );
 }
 

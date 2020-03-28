@@ -8,10 +8,17 @@ const BtnSection = ({addTodo}) => {
     } 
 
     return (
-        <>
-            Task <input type="text" value={inputText} onChange={updateInputText} />
-            <button onClick={() => addTodo(inputText)}>Save Item</button>
-        </>
+        <div className="BtnSection">
+            <div>
+                Task 
+            </div>
+            <div>
+                  <input type="text" placeholder="What do you need to do?" value={inputText} onChange={updateInputText} />
+            </div>
+            <div>
+                <button onClick={() => addTodo(inputText)} className="SaveBtn">Save Item</button>
+            </div>
+        </div>
     );
 }
 
