@@ -1,47 +1,68 @@
 import React, { useEffect, useState } from 'react';
+import Board from './Board';
+import BtnSection from './BtnSection';
 
-const Main = () => {
+const Main = ({children}) => {
     const [todoList, setTodo] = useState(
         [
-            {'text' : '컴활 공부'},
-            {'text' : '정처기 공부'},
-            {'text' : '리액트 공부'},
+            {
+                'text' : '컴활 공부',
+                'checked' : true,
+            },
+            {
+                'text' : '정처기 공부',
+                'checked' : false,
+            },
+            {
+                'text' : '리액트 공부',
+                'checked' : true,
+            },
         ]
     );
-    const input = '';
 
-    useEffect(() => {
-/*         setNum(2);
-        console.log("start");
-        return console.log("end"); */
-    },[])
+    //todo 추가
+    const addTodo = (todoText) => {
+        setTodo(
+            [
+                ...todoList,
+                {
+                    "text": todoText,
+                    "checked": false,
+                } 
+            ]
+        );
+    }
 
-    useEffect(() => {
-        console.log(todoList);
-    }, [todoList])
+    //todo 체크
+    const checkTodo = (index) => {
+        setTodo(
+            [
+                ...todoList.slice(0, index),
+                {
+                    "text": todoList[index]["text"],
+                    "checked": true,
+                },
+                ...todoList.slice(index+1),
+            ]
+        );
+    }
 
-    const addTodo = () => {
-        setTodo(todoList.concat({"text":'abcd'}));
+    //todo 삭제
+    const deleteTodo = (index) => {
+        setTodo(
+            [
+                ...todoList.slice(0, index),
+                ...todoList.slice(index+1),
+            ]
+        );
     }
 
     return (
         <>
-            <p>To do:</p>
-            <ul>
-                {
-                    todoList.map((todoItem, i) => {
-                        return (
-                            <li>
-                                {todoItem.text}
-                                <button>확인</button>
-                                <button>삭제</button>
-                            </li>
-                        );
-                    })
-                }
-            </ul>
-            Task <input type="text"></input>
-            <button onClick={addTodo}>Save Item</button>
+            <div className="Main">
+                <Board todoList={todoList} checkTodo={checkTodo} deleteTodo={deleteTodo} />
+                <BtnSection addTodo={addTodo} />
+            </div>
         </>
     );
 }
