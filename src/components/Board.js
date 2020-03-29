@@ -12,7 +12,7 @@ const Board = ({todoList, checkTodo, deleteTodo}) => {
                                 <div className={todoItem.checked ? "CompleteText" : ""}>
                                     {todoItem.text}
                                 </div>
-                                <div>
+                                <div style={{'text-align':'right'}}>
                                     {todoItem.checked === false && <button onClick={() => checkTodo(i)} className="CheckBtn">✓</button>}
                                     <button onClick={() => deleteTodo(i)} class="DeleteBtn">X</button>
                                 </div>
