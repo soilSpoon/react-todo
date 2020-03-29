@@ -5,7 +5,7 @@ import BtnSection from './BtnSection';
 const Main = () => {
     const [todoList, setTodo] = useState(
         [
-            {
+/*             {
                 'text' : '컴활 공부',
                 'checked' : true,
             },
@@ -16,7 +16,7 @@ const Main = () => {
             {
                 'text' : '리액트 공부',
                 'checked' : true,
-            },
+            }, */
         ]
     );
 
